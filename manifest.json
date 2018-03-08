@@ -7,5 +7,11 @@
             "id": "ext@benweedon.com"
         }
     },
-    "description": "Provides mouse hover translations of Yiddish text to make learning easier."
+    "description": "Provides mouse hover translations of Yiddish text to make learning easier.",
+    "content_scripts": [
+        {
+            "matches": ["<all_urls>"],
+            "js": ["popups.js"]
+        }
+    ]
 }
