@@ -1,4 +1,57 @@
-const YIDDISH_REGEX = /(?:^|\s)\S{3}(?=$|\s)/;
+function yiddishRegex() {
+    let regex = /(?:^|\s)/u.source;
+    regex += '[';
+
+    regex += [
+        /א/u,
+        /\u{FB2E}/u, // HEBREW LETTER ALEF WITH PATAH
+        /\u{FB2F}/u, // HEBREW LETTER ALEF WITH QAMATS
+        /ב/u,
+        /\u{FB31}/u, // HEBREW LETTER BET WITH DAGESH
+        /\u{FB4C}/u, // HEBREW LETTER BET WITH RAFE
+        /ג/u,
+        /ד/u,
+        /ה/u,
+        /ו/u,
+        /\u{FB35}/u, // HEBREW LETTER VAV WITH DAGESH
+        /\u{FB4B}/u, // HEBREW LETTER VAV WITH HOLAM
+        /װ/u,
+        /ױ/u,
+        /ז/u,
+        /ח/u,
+        /ט/u,
+        /י/,
+        /\u{FB1D}/u, // HEBREW LETTER YOD WITH HIRIQ
+        /ײ/u,
+        /\u{FB1F}/u, // HEBREW LIGATURE YIDDISH YOD YOD PATAH
+        /כ/u,
+        /\u{FB3B}/u, // HEBREW LETTER KAF WITH DAGESH
+        /ך/u,
+        /ל/u,
+        /מ/u,
+        /ם/u,
+        /נ/u,
+        /ן/u,
+        /ס/u,
+        /ע/u,
+        /פ/u,
+        /\u{FB44}/u, // HEBREW LETTER PE WITH DAGESH
+        /\u{FB4E}/u, // HEBREW LETTER PE WITH RAFE
+        /ף/u,
+        /צ/u,
+        /ץ/u,
+        /ק/u,
+        /ר/u,
+        /ש/u,
+        /\u{FB2B}/u, // HEBREW LETTER SHIN WITH SIN DOT
+        /ת/u,
+        /\u{FB4A}/u // HEBREW LETTER TAV WITH DAGESH
+    ].map(r => r.source).join('');
+
+    regex += ']+';
+    regex += /(?=$|\s)/u.source;
+    return new RegExp(regex);
+}
 
 function getTextNodes() {
     let walk = document.createTreeWalker(
@@ -57,6 +110,6 @@ function replaceWithNodes(node, newNodes) {
 }
 
 for (let node of getTextNodes()) {
-    let newNodes = produceNewNodes(node.nodeValue, YIDDISH_REGEX, underline);
+    let newNodes = produceNewNodes(node.nodeValue, yiddishRegex(), underline);
     replaceWithNodes(node, newNodes);
 }
