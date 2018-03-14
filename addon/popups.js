@@ -1,3 +1,5 @@
+'use strict';
+
 function yiddishRegex() {
     let regex = /(?:^|\s)/u.source;
     regex += '[';
