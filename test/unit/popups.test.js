@@ -56,4 +56,11 @@ describe('yiddishRegex', function() {
         assertMatches('ת');
         assertMatches('תּ');
     });
+
+    it('should match longer words', function() {
+        assertMatches('אבג');
+        assertMatches('   אבג ');
+        assertMatches('אבג ');
+        assertMatches(' אבג');
+    });
 });
