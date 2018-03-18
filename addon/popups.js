@@ -1,9 +1,11 @@
 'use strict';
 
 function yiddishRegex() {
-    let regex = /(?:^|\s)/u.source;
-    regex += '[';
+    const punctuation = /[`~!@#$%^&*()-_+={}\[\]\\|;:'"<>,.\/?]/u.source;
 
+    let regex = '(?:^|\\s|' + punctuation + ')';
+
+    regex += '[';
     regex += [
         /א/u,
         /אַ/u,
@@ -49,9 +51,9 @@ function yiddishRegex() {
         /ת/u,
         /תּ/u
     ].map(r => r.source).join('');
-
     regex += ']+';
-    regex += /(?=$|\s)/u.source;
+
+    regex += '(?=$|\\s|' + punctuation + ')';
     return new RegExp(regex);
 }
 

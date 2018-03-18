@@ -63,4 +63,23 @@ describe('yiddishRegex', function() {
         assertMatches('אבג ');
         assertMatches(' אבג');
     });
+
+    it('should handle surrounding punctuation properly', function() {
+        assertMatches('`א~');
+        assertMatches('!א@');
+        assertMatches('#א$');
+        assertMatches('%א^');
+        assertMatches('&א*');
+        assertMatches('(א)');
+        assertMatches('-א_');
+        assertMatches('+א=');
+        assertMatches('{א}');
+        assertMatches('[א]');
+        assertMatches('\\א|');
+        assertMatches(';א:');
+        assertMatches('\'א"');
+        assertMatches('<א>');
+        assertMatches(',א.');
+        assertMatches('/א?');
+    });
 });
