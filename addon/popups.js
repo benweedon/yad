@@ -6,28 +6,28 @@ function yiddishRegex() {
 
     regex += [
         /א/u,
-        /\u{FB2E}/u, // HEBREW LETTER ALEF WITH PATAH
-        /\u{FB2F}/u, // HEBREW LETTER ALEF WITH QAMATS
+        /אַ/u,
+        /אָ/u,
         /ב/u,
-        /\u{FB31}/u, // HEBREW LETTER BET WITH DAGESH
-        /\u{FB4C}/u, // HEBREW LETTER BET WITH RAFE
+        /בּ/u,
+        /בֿ/u,
         /ג/u,
         /ד/u,
         /ה/u,
         /ו/u,
-        /\u{FB35}/u, // HEBREW LETTER VAV WITH DAGESH
-        /\u{FB4B}/u, // HEBREW LETTER VAV WITH HOLAM
+        /וּ/u,
+        /וֹ/u,
         /װ/u,
         /ױ/u,
         /ז/u,
         /ח/u,
         /ט/u,
         /י/,
-        /\u{FB1D}/u, // HEBREW LETTER YOD WITH HIRIQ
+        /יִ/u,
         /ײ/u,
-        /\u{FB1F}/u, // HEBREW LIGATURE YIDDISH YOD YOD PATAH
+        /ײַ/u,
         /כ/u,
-        /\u{FB3B}/u, // HEBREW LETTER KAF WITH DAGESH
+        /כּ/u,
         /ך/u,
         /ל/u,
         /מ/u,
@@ -37,17 +37,17 @@ function yiddishRegex() {
         /ס/u,
         /ע/u,
         /פ/u,
-        /\u{FB44}/u, // HEBREW LETTER PE WITH DAGESH
-        /\u{FB4E}/u, // HEBREW LETTER PE WITH RAFE
+        /פּ/u,
+        /פֿ/u,
         /ף/u,
         /צ/u,
         /ץ/u,
         /ק/u,
         /ר/u,
         /ש/u,
-        /\u{FB2B}/u, // HEBREW LETTER SHIN WITH SIN DOT
+        /שׂ/u,
         /ת/u,
-        /\u{FB4A}/u // HEBREW LETTER TAV WITH DAGESH
+        /תּ/u
     ].map(r => r.source).join('');
 
     regex += ']+';

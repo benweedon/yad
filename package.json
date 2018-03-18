@@ -1,0 +1,15 @@
+{
+    "name": "ext",
+    "version": "0.1.0",
+    "devDependencies": {
+        "chai": "4.1.2",
+        "karma": "2.0.0",
+        "karma-firefox-launcher": "1.1.0",
+        "karma-mocha": "1.3.0",
+        "karma-mocha-reporter": "2.2.5",
+        "mocha": "5.0.4"
+    },
+    "scripts": {
+        "test": "set NODE_ENV=test && karma start"
+    }
+}
