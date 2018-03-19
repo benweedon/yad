@@ -83,3 +83,23 @@ describe('yiddishRegex', function() {
         assertMatches('/א?');
     });
 });
+
+describe('normalize', function() {
+    it('should normalize individual characters', function() {
+        expect(normalize('א\u05B7')).to.equal('אַ');
+        expect(normalize('א\u05B8')).to.equal('אָ');
+        expect(normalize('ב\u05BC')).to.equal('בּ');
+        expect(normalize('ב\u05BF')).to.equal('בֿ');
+        expect(normalize('ו\u05BC')).to.equal('וּ');
+        expect(normalize('ו\u05B9')).to.equal('וֹ');
+        expect(normalize('ו\u05BA')).to.equal('וֹ');
+        expect(normalize('י\u05B4')).to.equal('יִ');
+        expect(normalize('יי\u05B7')).to.equal('ײַ');
+        expect(normalize('ײ\u05B7')).to.equal('ײַ');
+        expect(normalize('כ\u05BC')).to.equal('כּ');
+        expect(normalize('פ\u05BC')).to.equal('פּ');
+        expect(normalize('פ\u05BF')).to.equal('פֿ');
+        expect(normalize('ש\u05C2')).to.equal('שׂ');
+        expect(normalize('ת\u05BC')).to.equal('תּ');
+    });
+});
