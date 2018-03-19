@@ -1,7 +1,7 @@
 'use strict';
 
 function yiddishRegex() {
-    const punctuation = /[`~!@#$%^&*()-_+={}\[\]\\|;:'"<>,.\/?]/u.source;
+    const punctuation = /[`~!@#$%^&*()-_+={}\[\]\\|;:'"<>,.\/?־\u2000-\u206F\u2E00-\u2E7F]/u.source;
 
     let regex = '(?:^|\\s|' + punctuation + ')';
 

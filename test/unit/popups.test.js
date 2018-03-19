@@ -81,6 +81,8 @@ describe('yiddishRegex', function() {
         assertMatches('<א>');
         assertMatches(',א.');
         assertMatches('/א?');
+        assertMatches('‟א„');
+        assertMatches('א־’');
     });
 });
 
