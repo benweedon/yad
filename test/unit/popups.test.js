@@ -102,4 +102,8 @@ describe('normalize', function() {
         expect(normalize('ש\u05C2')).to.equal('שׂ');
         expect(normalize('ת\u05BC')).to.equal('תּ');
     });
+
+    it('should normalize multiple instances of the same character', function() {
+        expect(normalize('א\u05B7א\u05B7')).to.equal('אַאַ');
+    });
 });

@@ -58,21 +58,21 @@ function yiddishRegex() {
 }
 
 function normalize(str) {
-    str = str.replace(/א\u05B7/u, 'אַ');
-    str = str.replace(/א\u05B8/u, 'אָ');
-    str = str.replace(/ב\u05BC/u, 'בּ');
-    str = str.replace(/ב\u05BF/u, 'בֿ');
-    str = str.replace(/ו\u05BC/u, 'וּ');
-    str = str.replace(/ו\u05B9/u, 'וֹ');
-    str = str.replace(/ו\u05BA/u, 'וֹ');
-    str = str.replace(/י\u05B4/u, 'יִ');
-    str = str.replace(/יי\u05B7/u, 'ײַ');
-    str = str.replace(/ײ\u05B7/u, 'ײַ');
-    str = str.replace(/כ\u05BC/u, 'כּ');
-    str = str.replace(/פ\u05BC/u, 'פּ');
-    str = str.replace(/פ\u05BF/u, 'פֿ');
-    str = str.replace(/ש\u05C2/u, 'שׂ');
-    str = str.replace(/ת\u05BC/u, 'תּ');
+    str = str.replace(/א\u05B7/ug, 'אַ');
+    str = str.replace(/א\u05B8/ug, 'אָ');
+    str = str.replace(/ב\u05BC/ug, 'בּ');
+    str = str.replace(/ב\u05BF/ug, 'בֿ');
+    str = str.replace(/ו\u05BC/ug, 'וּ');
+    str = str.replace(/ו\u05B9/ug, 'וֹ');
+    str = str.replace(/ו\u05BA/ug, 'וֹ');
+    str = str.replace(/י\u05B4/ug, 'יִ');
+    str = str.replace(/יי\u05B7/ug, 'ײַ');
+    str = str.replace(/ײ\u05B7/ug, 'ײַ');
+    str = str.replace(/כ\u05BC/ug, 'כּ');
+    str = str.replace(/פ\u05BC/ug, 'פּ');
+    str = str.replace(/פ\u05BF/ug, 'פֿ');
+    str = str.replace(/ש\u05C2/ug, 'שׂ');
+    str = str.replace(/ת\u05BC/ug, 'תּ');
     return str;
 }
 
