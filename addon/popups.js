@@ -132,7 +132,8 @@ function replaceWithNodes(node, newNodes) {
     node.parentNode.removeChild(node);
 }
 
+const regex = yiddishRegex();
 for (let node of getTextNodes()) {
-    let newNodes = produceNewNodes(normalize(node.nodeValue), yiddishRegex(), underline);
+    let newNodes = produceNewNodes(normalize(node.nodeValue), regex, underline);
     replaceWithNodes(node, newNodes);
 }
