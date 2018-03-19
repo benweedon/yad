@@ -1,9 +1,9 @@
 'use strict';
 
-function yiddishRegex() {
-    const punctuation = /[`~!@#$%^&*()-_+={}\[\]\\|;:'"<>,.\/?־\u2000-\u206F\u2E00-\u2E7F]/u.source;
+const wordBoundary = /[\s`~!@#$%^&*()-_+={}\[\]\\|;:'"<>,.\/?־\u2000-\u206F\u2E00-\u2E7F]/u;
 
-    let regex = '(?:^|\\s|' + punctuation + ')';
+function yiddishRegex() {
+    let regex = '(?:^|' + wordBoundary.source + ')';
 
     regex += '[';
     regex += [
@@ -53,7 +53,7 @@ function yiddishRegex() {
     ].map(r => r.source).join('');
     regex += ']+';
 
-    regex += '(?=$|\\s|' + punctuation + ')';
+    regex += '(?=$|' + wordBoundary.source + ')';
     return new RegExp(regex);
 }
 
@@ -104,7 +104,7 @@ function produceNewNodes(val, regex, f) {
     let nodes = [];
     let result;
     while (result = val.match(regex)) {
-        let addend = val[result.index].match(/\s/) ? 1 : 0;
+        let addend = val[result.index].match(wordBoundary) ? 1 : 0;
         let preceding = val.substring(0, result.index + addend);
         if (preceding.length != 0) {
             nodes.push(document.createTextNode(preceding));
