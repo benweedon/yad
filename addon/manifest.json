@@ -1,10 +1,10 @@
 {
     "manifest_version": 2,
-    "name": "Yiddish Ext",
+    "name": "Yad",
     "version": "0.0.0",
     "applications": {
         "gecko": {
-            "id": "ext@benweedon.com"
+            "id": "yad@pesv.at"
         }
     },
     "description": "Provides mouse hover translations of Yiddish text to make learning easier.",
