@@ -10,6 +10,7 @@
         "mocha": "5.0.4"
     },
     "scripts": {
+        "lint": "web-ext -s addon lint",
         "test": "set NODE_ENV=test && karma start"
     }
 }
