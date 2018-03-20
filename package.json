@@ -19,7 +19,7 @@
         "lint:eslint": "eslint --ext=.js,.json .",
         "lint:web-ext": "web-ext -s addon lint",
         "test": "npm-run-all test:*",
-        "test:karma": "set NODE_ENV=test && karma start",
+        "test:karma": "karma start",
         "test:lint": "npm run lint"
     }
 }
