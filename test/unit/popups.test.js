@@ -1,5 +1,9 @@
 'use strict';
 
+/* === eslint === */
+/* global chai normalize yiddishRegex */
+/* ============== */
+
 let expect = chai.expect;
 
 describe('yiddishRegex', function() {
