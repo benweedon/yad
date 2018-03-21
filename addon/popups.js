@@ -1,6 +1,6 @@
 'use strict';
 
-const wordBoundary = /[\s`~!@#$%^&*()-_+={}[\]\\|;:'"<>,./?־\u2000-\u206F\u2E00-\u2E7F]/u;
+const wordBoundary = /[\s`~!@#$%^&*()\-_+={}[\]\\|;:'"<>,./?־\u2000-\u206F\u2E00-\u2E7F]/u;
 
 function yiddishRegex() {
     let regex = '(?:^|' + wordBoundary.source + ')';
