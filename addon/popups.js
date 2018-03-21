@@ -24,7 +24,7 @@ function yiddishRegex() {
         /ז/u,
         /ח/u,
         /ט/u,
-        /י/,
+        /י/u,
         /יִ/u,
         /ײ/u,
         /ײַ/u,
