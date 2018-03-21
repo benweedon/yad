@@ -15,6 +15,11 @@ describe('yiddishRegex', function() {
         expect(match).to.have.lengthOf(1);
     }
 
+    function assertDoesNotMatch(str) {
+        let match = str.match(regex);
+        expect(match).to.be.null;
+    }
+
     it('should match single characters', function() {
         assertMatches('א');
         assertMatches('אַ');
@@ -87,6 +92,15 @@ describe('yiddishRegex', function() {
         assertMatches('/א?');
         assertMatches('‟א„');
         assertMatches('א־’');
+    });
+
+    it('should not match non-Yiddish', function() {
+        assertDoesNotMatch('a');
+        assertDoesNotMatch('abc');
+        assertDoesNotMatch('1');
+        assertDoesNotMatch('123');
+        assertDoesNotMatch('aאב');
+        assertDoesNotMatch('3אב');
     });
 });
 
