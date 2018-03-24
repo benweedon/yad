@@ -1,5 +1,34 @@
 'use strict';
 
+class Popup {
+    addToDocument() {
+        let popup = document.createElement('div');
+        popup.id = 'yad_popup';
+        document.body.appendChild(popup);
+    }
+
+    setDefinition(word) {
+        document.getElementById('yad_popup').innerText = word;
+    }
+
+    setLocation(x, y) {
+        let elt = document.getElementById('yad_popup');
+        elt.style.left = x + 'px';
+        elt.style.top = y + 'px';
+    }
+
+    show() {
+        document.getElementById('yad_popup').style.display = 'block';
+    }
+
+    hide() {
+        document.getElementById('yad_popup').style.display = 'none';
+    }
+}
+
+const popup = new Popup();
+popup.addToDocument();
+
 const wordBoundary = /[\s`~!@#$%^&*()\-_+={}[\]\\|;:'"<>,./?־\u2000-\u206F\u2E00-\u2E7F]/u;
 
 function yiddishRegex() {
@@ -119,10 +148,21 @@ function produceNewNodes(val, regex, f) {
     return nodes;
 }
 
-function underline(text) {
-    let underlined = document.createElement('u');
-    underlined.appendChild(document.createTextNode(text));
-    return underlined;
+function setSpan(text) {
+    let span = document.createElement('span');
+    span.classList.add('yad_word');
+    span.addEventListener('mouseover', function() {
+        popup.setDefinition(text);
+        popup.show();
+    });
+    span.addEventListener('mouseout', function() {
+        popup.hide();
+    });
+    span.addEventListener('mousemove', function(e) {
+        popup.setLocation(e.clientX, e.clientY-50);
+    });
+    span.appendChild(document.createTextNode(text));
+    return span;
 }
 
 function replaceWithNodes(node, newNodes) {
@@ -134,6 +174,6 @@ function replaceWithNodes(node, newNodes) {
 
 const regex = yiddishRegex();
 for (let node of getTextNodes()) {
-    let newNodes = produceNewNodes(normalize(node.nodeValue), regex, underline);
+    let newNodes = produceNewNodes(normalize(node.nodeValue), regex, setSpan);
     replaceWithNodes(node, newNodes);
 }
