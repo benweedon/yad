@@ -94,7 +94,10 @@ function normalize(str) {
     str = str.replace(/ו\u05BC/ug, 'וּ');
     str = str.replace(/ו\u05B9/ug, 'וֹ');
     str = str.replace(/ו\u05BA/ug, 'וֹ');
+    str = str.replace(/וו/ug, 'װ');
+    str = str.replace(/וי/ug, 'ױ');
     str = str.replace(/י\u05B4/ug, 'יִ');
+    str = str.replace(/יי/ug, 'ײ');
     str = str.replace(/יי\u05B7/ug, 'ײַ');
     str = str.replace(/ײ\u05B7/ug, 'ײַ');
     str = str.replace(/כ\u05BC/ug, 'כּ');

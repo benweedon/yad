@@ -113,7 +113,10 @@ describe('normalize', function() {
         expect(normalize('ו\u05BC')).to.equal('וּ');
         expect(normalize('ו\u05B9')).to.equal('וֹ');
         expect(normalize('ו\u05BA')).to.equal('וֹ');
+        expect(normalize('וו')).to.equal('װ');
+        expect(normalize('וי')).to.equal('ױ');
         expect(normalize('י\u05B4')).to.equal('יִ');
+        expect(normalize('יי')).to.equal('ײ');
         expect(normalize('יי\u05B7')).to.equal('ײַ');
         expect(normalize('ײ\u05B7')).to.equal('ײַ');
         expect(normalize('כ\u05BC')).to.equal('כּ');
