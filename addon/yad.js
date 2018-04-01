@@ -170,6 +170,8 @@ function setSpan(text) {
                         definition = msg.eng[0];
                     }
                     popup.setDefinition(definition);
+                    let rect = span.getBoundingClientRect();
+                    popup.setLocation(rect.left, rect.top-50);
                     popup.show();
                 },
                 function() {
@@ -179,9 +181,6 @@ function setSpan(text) {
     });
     span.addEventListener('mouseout', function() {
         popup.hide();
-    });
-    span.addEventListener('mousemove', function(e) {
-        popup.setLocation(e.clientX, e.clientY-50);
     });
     span.appendChild(document.createTextNode(text));
     return span;
