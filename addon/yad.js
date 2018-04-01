@@ -9,6 +9,7 @@ class Popup {
         let popup = document.createElement('div');
         popup.id = 'yad_popup';
         document.body.appendChild(popup);
+        this.hide();
     }
 
     setDefinition(word) {
