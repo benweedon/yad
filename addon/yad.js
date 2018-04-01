@@ -1,5 +1,9 @@
 'use strict';
 
+/* === eslint === */
+/* global browser */
+/* ============== */
+
 class Popup {
     addToDocument() {
         let popup = document.createElement('div');
@@ -155,8 +159,22 @@ function setSpan(text) {
     let span = document.createElement('span');
     span.classList.add('yad_word');
     span.addEventListener('mouseover', function() {
-        popup.setDefinition(text);
-        popup.show();
+        browser.runtime.sendMessage(text)
+            .then(
+                function(msg) {
+                    let definition;
+                    if (msg == '') {
+                        definition = 'No definition found';
+                    } else {
+                        definition = msg.eng[0];
+                    }
+                    popup.setDefinition(definition);
+                    popup.show();
+                },
+                function() {
+                    // TODO: handle error here
+                }
+            );
     });
     span.addEventListener('mouseout', function() {
         popup.hide();

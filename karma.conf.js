@@ -7,8 +7,10 @@ module.exports = function(config) {
         frameworks: ['mocha'],
         reporters: ['mocha'],
         files: [
-            'addon/*.js',
             'node_modules/chai/chai.js',
+            'node_modules/sinon-chrome/bundle/sinon-chrome-webextensions.min.js',
+            'test/unit/globals.js',
+            'addon/*.js',
             'test/unit/*.test.js'
         ],
         plugins: [
