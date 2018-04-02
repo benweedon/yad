@@ -12,8 +12,41 @@ class Popup {
         this.hide();
     }
 
-    setDefinition(word) {
-        document.getElementById('yad_popup').innerText = word;
+    setDefinition(yiddish, entry) {
+        let elt = document.getElementById('yad_popup');
+        // remove all child elements (this is faster than setting innerHTML to '':
+        // https://stackoverflow.com/questions/3955229/remove-all-child-elements-of-a-dom-node-in-javascript)
+        while (elt.hasChildNodes()) {
+            elt.removeChild(elt.lastChild);
+        }
+
+        let newNodes = [];
+        if (entry == '') {
+            newNodes.push(document.createTextNode('No definition found'));
+        } else {
+            let yiddishHeader = document.createElement('h1');
+            yiddishHeader.textContent = yiddish;
+            newNodes.push(yiddishHeader);
+
+            let posParagraph = document.createElement('p');
+            let posItalic = document.createElement('i');
+            posItalic.textContent = entry._pos;
+            posParagraph.appendChild(posItalic);
+            newNodes.push(posParagraph);
+
+            let proParagraph = document.createElement('p');
+            let proItalic = document.createElement('i');
+            proItalic.textContent = entry._pro;
+            proParagraph.appendChild(proItalic);
+            newNodes.push(proParagraph);
+
+            let engParagraph = document.createElement('p');
+            engParagraph.textContent = entry.eng[0];
+            newNodes.push(engParagraph);
+        }
+        for (let node of newNodes) {
+            elt.appendChild(node);
+        }
     }
 
     setLocation(x, y) {
@@ -164,13 +197,7 @@ function setSpan(text) {
         browser.runtime.sendMessage(text)
             .then(
                 function(msg) {
-                    let definition;
-                    if (msg == '') {
-                        definition = 'No definition found';
-                    } else {
-                        definition = msg.eng[0];
-                    }
-                    popup.setDefinition(definition);
+                    popup.setDefinition(text, msg);
                     let rect = span.getBoundingClientRect();
                     popup.setLocation(rect.left, rect.top);
                     popup.show();
