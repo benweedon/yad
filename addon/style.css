@@ -5,4 +5,6 @@
     border: 0.03em solid black;
     border-radius: 1em;
     position: fixed;
+    padding-left: 1em;
+    padding-right: 1em;
 }

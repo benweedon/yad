@@ -22,7 +22,9 @@ class Popup {
 
         let newNodes = [];
         if (entry == '') {
-            newNodes.push(document.createTextNode('No definition found'));
+            let p = document.createElement('p');
+            p.textContent = 'No definition found';
+            newNodes.push(p);
         } else {
             let yiddishHeader = document.createElement('h1');
             yiddishHeader.textContent = yiddish;
