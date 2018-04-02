@@ -1,6 +1,8 @@
 #yad_popup {
-    width: 100px;
-    height: 50px;
-    background-color: green;
+    display: block;
+    width: 30em;
+    background-color: white;
+    border: 0.03em solid black;
+    border-radius: 1em;
     position: fixed;
 }

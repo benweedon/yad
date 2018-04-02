@@ -19,15 +19,16 @@ class Popup {
     setLocation(x, y) {
         let elt = document.getElementById('yad_popup');
         elt.style.left = x + 'px';
-        elt.style.top = y + 'px';
+        let height = elt.getBoundingClientRect().height;
+        elt.style.top = (y - height) + 'px';
     }
 
     show() {
-        document.getElementById('yad_popup').style.display = 'block';
+        document.getElementById('yad_popup').style.visibility = 'visible';
     }
 
     hide() {
-        document.getElementById('yad_popup').style.display = 'none';
+        document.getElementById('yad_popup').style.visibility = 'hidden';
     }
 }
 
@@ -171,7 +172,7 @@ function setSpan(text) {
                     }
                     popup.setDefinition(definition);
                     let rect = span.getBoundingClientRect();
-                    popup.setLocation(rect.left, rect.top-50);
+                    popup.setLocation(rect.left, rect.top);
                     popup.show();
                 },
                 function() {
