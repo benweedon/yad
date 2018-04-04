@@ -31,10 +31,18 @@ latestReleaseRequest.addEventListener('readystatechange', function() {
 latestReleaseRequest.open('GET', 'https://api.github.com/repos/benweedon/yiddish_dictionary/releases/latest', true);
 latestReleaseRequest.send(null);
 
-browser.runtime.onMessage.addListener(function(msg, sender, sendResponse) {
-    if (msg in dict) {
-        sendResponse(dict[msg]);
+function handleMessage(msg, sender, sendResponse) {
+    if (dict != null) {
+        if (msg in dict) {
+            sendResponse(dict[msg]);
+        } else {
+            sendResponse('');
+        }
+        return false;
     } else {
-        sendResponse('');
+        setTimeout(handleMessage, 100, msg, sender, sendResponse);
+        return true;
     }
-});
+}
+
+browser.runtime.onMessage.addListener(handleMessage);
