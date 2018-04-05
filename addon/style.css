@@ -9,6 +9,17 @@
     padding-right: 1em;
 }
 
+#yad_popup h1 {
+    font: 3em "Proxima Nova";
+    border: 0;
+    margin-bottom: 0.1em;
+}
+
+#yad_popup p {
+    font: 1.2em "Libre Baskerville";
+    margin-bottom: 0.04em;
+}
+
 .yad_word:hover {
     text-shadow: #FFD700 0 0 0.5em, #FFD700 0 0 0.5em, #FFD700 0 0 0.5em, #FFD700 0 0 0.5em;
 }
