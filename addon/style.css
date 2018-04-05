@@ -8,3 +8,7 @@
     padding-left: 1em;
     padding-right: 1em;
 }
+
+.yad_word:hover {
+    text-shadow: #FFD700 0 0 0.5em, #FFD700 0 0 0.5em, #FFD700 0 0 0.5em, #FFD700 0 0 0.5em;
+}
