@@ -12,7 +12,7 @@ minDictRequest.addEventListener('readystatechange', function() {
         dict = JSON.parse(minDictRequest.responseText)
     }
 });
-minDictRequest.open('GET', 'https://benweedon.github.io/yiddish_dictionary/min.json', true);
+minDictRequest.open('GET', 'https://benweedon.github.io/yiddish_dictionary/dict.min.json', true);
 minDictRequest.send(null);
 
 function handleMessage(msg, sender, sendResponse) {
